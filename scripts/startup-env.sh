@@ -1,6 +1,6 @@
 #!/bin/bash
-# scripts/kvm-init-net.sh
-# Init network on KVM host
+# scripts/startup-env.sh
+# Init network on KVM host and startup KVM Docker VM
 
 [ $UID -ne 0 ] && echo "ERROR: $0 has to be executed as root." >&2 && exit 1
 
@@ -32,3 +32,7 @@ route add -net ${KVM_NET} dev ${KVM_IFACE}
 # Traffic der virtuellen Systeme über Interface mit Internet-Anbindungen maskieren
 echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -s ${KVM_NET} -o $INET_INTERFACE -j MASQUERADE
+
+# Start Docker platform
+/etc/init.d/libvirtd start
+virsh start docker-host

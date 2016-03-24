@@ -1,8 +1,0 @@
-$TTL 1800
-task-whois.de.		SOA	ns1.dnsprovi.de. dnssec.arminpech.de. ( 1 1800 900 1814400 1800 )
-
-task-whois.de.		NS	ns1.dnsprovi.de.
-task-whois.de.		NS	ns2.dnsprovi.de.
-
-task-whois.de.		A	10.20.4.23
-www.task-whois.de.	CNAME	www.dnsprovi.de.

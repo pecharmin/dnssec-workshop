@@ -1,1 +1,0 @@
-../../../../shared/etc/bind/scripts/zone-update.sh
